@@ -33,11 +33,14 @@ const tempEngine = (template: string, data: Record<string, any>): string => {
   return new Function(code.replace(/[\r\t\n]/g, "")).apply(data);
 };
 
-const temp: string = `hello my name is <%this.name%>, i am
+const temp: string = `
+<h1>
+hello my name is <%this.name%>, i am
    <%for(let x in this.age){%>
       <%x%>
   <%}%>
-    years old`;
+    years old
+</h1>`;
 
 console.log(
   tempEngine(temp, {
