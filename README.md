@@ -44,16 +44,25 @@ The provided JavaScript/TypeScript code defines a simple template engine named `
 
 - Outputs the result to the console.
 
-**Example Output:**
-
+**Example input:**
+```javascript
+const temp: string = `
+<h1>hello my name is <%this.name%>, i am
+   <%for(let x in this.age){%>
+      <%x%>
+  <%}%>
+    years old
+</h1>`;
+```
+***output***
 ```javascript
 var r=[];
-r.push("hello my name is ") 
+r.push("<h1>hello my name is ") 
 r.push(this.name);
 r.push(", i am")
 for(let x in this.age){"
     r.push("x");
 }
- r.push("years old");
+ r.push("years old </h1>");
 
 outout: hello my name is feranmi, i am  0 1 2 years old
