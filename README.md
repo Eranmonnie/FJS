@@ -48,12 +48,12 @@ The provided JavaScript/TypeScript code defines a simple template engine named `
 
 ```javascript
 var r=[];
-hello my name is 
-r.push("this.name");
-, i am
- r.push("for(let x in this.age){");
+r.push("hello my name is ") 
+r.push(this.name);
+r.push(", i am")
+for(let x in this.age){"
     r.push("x");
-r.push("}");
-  years old'
+}
+ r.push("years old");
 
 outout: hello my name is feranmi, i am  0 1 2 years old
