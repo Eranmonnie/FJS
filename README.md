@@ -47,7 +47,8 @@ The provided JavaScript/TypeScript code defines a simple template engine named `
 **Example input:**
 ```javascript
 const temp: string = `
-<h1>hello my name is <%this.name%>, i am
+<h1>
+   hello my name is <%this.name%>, i am
    <%for(let x in this.age){%>
       <%x%>
   <%}%>
