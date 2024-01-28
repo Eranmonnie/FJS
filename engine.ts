@@ -11,14 +11,17 @@ const tempEngine = (template: string, data: Record<string, any>): string => {
   let match: RegExpExecArray | null;
   //add function that appends html chunks to the code variable in a js syntax
   const add = (html: string, js: boolean): void => {
+    //code checks if chunl has conditions or loops and appends it to code in a js syntax
     js
       ? (code += html.match(reExp) ? html + "\n" : `r.push(${html});\n`)
       : (code += `r.push("${html.replace(/"/g, '\\"')}");\n`);
   };
   //loop generates html chunks that are passed to the add function
   while ((match = reg.exec(template))) {
+    //gets chunk from its beginning to where our template synyacts starts
     add(template.slice(cursor, match.index), false);
     add(match[1], true);
+    //updates the  cursor so it can move to the next chunk
     cursor = match.index + match[0].length;
   }
 
